@@ -1,10 +1,10 @@
-#Top Coder Pong
+# Top Coder Pong
 
 TCP is a simple Pong clone coded in Python 3
 ##DEPENDENCIES
 TCP requires the following dependencies:
 
-* Python 2.7 (Python3 should work fine, but untested)
+* Python 2.7 / Python 3
 * Pygame 1.9.6 or later
 (install instructions here: https://www.pygame.org/wiki/GettingStarted)
 * Packaged modules
@@ -15,7 +15,7 @@ TCP requires the following dependencies:
     * avatar.py
     * window.py
 
-##INSTRUCTIONS
+## INSTRUCTIONS
 To play, extract the python modules to a local directory,
 and run `python pong.py`
 
@@ -26,7 +26,3 @@ At the console prompt, enter whether player single
  First to 10 wins.  ESC to exit at any time.
  
  Enjoy! 
-
-```
-Noonoo
-```
