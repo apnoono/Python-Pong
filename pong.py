@@ -12,6 +12,7 @@ class Pong:
     clock = pygame.time.Clock()
 
     """ Pong class defining main game loop. """
+
     def __init__(self, mode: str, window: Window):
         """
 
@@ -31,9 +32,9 @@ class Pong:
         With each successful hit, the ball speed increments by 1.
         """
         if pygame.sprite.collide_rect(self.ball, self.player2):
-            if (self.ball.direction == 2): #IF upper right...
-                self.ball.direction = 0 #THEN change to upper left
-            elif (self.ball.direction == 3): #IF lower right...
+            if (self.ball.direction == 2):  # IF upper right...
+                self.ball.direction = 0  # THEN change to upper left
+            elif (self.ball.direction == 3):  # IF lower right...
                 self.ball.direction = 1
             self.ball.speed += 1
 
@@ -44,13 +45,12 @@ class Pong:
                 self.ball.direction = 3
             self.ball.speed += 1
 
-
     def loop(self):
         """game looping construct """
-        # score_font = pygame.font.SysFont('Helvetica', 120)
         try:
-            score_font = pygame.font.Font('fonts/PressStart2P-Regular.ttf', 120)
+            score_font = pygame.font.SysFont('Helvetica', 120)
         except Exception as e:
+            score_font = pygame.font.Font('fonts/PressStart2P-Regular.ttf', 120)
             print("Something happened with the font")
             raise e
         # score, win status variables
@@ -87,22 +87,20 @@ class Pong:
                         self.player1.UP1 = True
                         self.player1.DOWN1 = False
                         self.player1.NEUTRAL1 = False
-                    elif event.key == ord('x'):
+                    elif event.key == ord('s'):
                         self.player1.UP1 = False
                         self.player1.DOWN1 = True
                         self.player1.NEUTRAL1 = False
 
-
                 elif event.type == pygame.KEYUP:
-                    if event.key == ord('w') or event.key == ord('x'):
+                    if event.key == ord('w') or event.key == ord('s'):
                         self.player1.NEUTRAL1 = True
                         self.player1.DOWN1 = False
                         self.player1.UP1 = False
 
             # Update the score board
-            score_board = score_font.render(str(player1_score) + "           " + \
-                                            str(player2_score), True, self.game_window.colors[0], \
-                                            self.game_window.colors[3])
+            score_board = score_font.render(str(player1_score) + "           " + str(player2_score), True,
+                                            self.game_window.colors[0], self.game_window.colors[3])
             score_board_rect = score_board.get_rect()
             score_board_rect.centerx = self.game_window.game_surf_rect.centerx
             score_board_rect.y = 10
@@ -126,23 +124,23 @@ class Pong:
             pygame.display.update()
 
             # check if there is a winner
-            if player1_score == 3:
+            if player1_score == 10:
                 self.player1_win = True
                 return 1
-            elif player2_score == 3:
+            elif player2_score == 10:
                 self.player2_win = True
                 return 2
 
-        # while True:
-        #     for event in pygame.event.get():
-        #         if event.type == pygame.QUIT:
-        #             pygame.quit()
-        #             sys.exit()
-        #         if event.type == pygame.KEYDOWN:
-        #             if event.key == pygame.K_ESCAPE:
-        #                 pygame.quit()
-        #                 sys.exit()
-        #
-        #     self.game_window.game_surf.fill(self.game_window.colors[3])
-        #
-        #     pygame.display.update()
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        pygame.quit()
+                        sys.exit()
+
+            self.game_window.game_surf.fill(self.game_window.colors[3])
+
+            pygame.display.update()

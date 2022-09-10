@@ -50,9 +50,7 @@ class Ball(pygame.sprite.Sprite):
             self.direction = self.DOWNLEFT
         if self.rect.y < 0 and self.direction == self.UPRIGHT:
             self.direction = self.DOWNRIGHT
-        if self.rect.y > self.game_window.game_surf_rect.bottom \
-                and self.direction == self.DOWNLEFT:
+        if self.rect.y > self.game_window.game_surf_rect.bottom and self.direction == self.DOWNLEFT:
             self.direction = self.UPLEFT
-        if self.rect.y > self.game_window.game_surf_rect.bottom \
-                and self.direction == self.DOWNRIGHT:
+        if self.rect.y > self.game_window.game_surf_rect.bottom and self.direction == self.DOWNRIGHT:
             self.direction = self.UPRIGHT

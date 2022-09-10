@@ -25,12 +25,12 @@ class Avatar(Paddle):
         if mode == "EASY":
             self.image = pygame.Surface([self.PADDLE_WIDTH, self.PADDLE_HEIGHT])
             self.image.fill(self.game_window.colors[4])  # blue
-            self.speed = 6
+            self.speed = 5
 
         else:
             self.image = pygame.Surface([self.PADDLE_WIDTH, self.PADDLE_HEIGHT + 25])
             self.image.fill(self.game_window.colors[5])  # deep pink
-            self.speed = 10
+            self.speed = 6
 
         self.rect = self.image.get_rect()
 
@@ -42,7 +42,6 @@ class Avatar(Paddle):
 
     def move(self):
         """ overide of Paddle class move method; tracks ball y-coordinate"""
-        # while (self.rect.y != self.ball.rect.y):
 
         # track ball moving toward upper right
         if self.ball.direction == 2:
@@ -53,5 +52,5 @@ class Avatar(Paddle):
         # track ball moving toward lower right
         elif self.ball.direction == 3:
             if self.rect.bottom < self.game_window.height - 5:
-                self.rect.y += self.speed
-                # self.rect.y = self.ball.rect.y
+                self.rect.y += self.speed + 2
+                self.rect.y = self.ball.rect.y

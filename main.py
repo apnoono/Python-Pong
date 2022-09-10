@@ -62,8 +62,8 @@ def game_intro(window):
                 ball.direction = randint(2, 3)
                 ball.speed += 1
 
-            if ball.speed == 15:
-                ball.speed =4
+            if ball.speed == 5:
+                ball.speed = 1
 
         # event listener loop for exit/start key press
         for event in pygame.event.get():
@@ -83,7 +83,7 @@ def game_intro(window):
         title_text_rect.center = ((window.width // 2), (window.height // 2))
 
         small_font = pygame.font.Font('fonts/PressStart2P-Regular.ttf', 12)
-        sub_text_surf, sub_text_rect = text_objects("[w] UP [x] DOWN [SPACE] START [ESC] QUIT", small_font)
+        sub_text_surf, sub_text_rect = text_objects("[w] UP [s] DOWN [SPACE] START [ESC] QUIT", small_font)
         sub_text_rect.center = ((window.width // 2), (window.game_surf_rect.bottom - 20))
 
         window.game_surf.blit(title_text_surf, title_text_rect)
@@ -101,6 +101,13 @@ def game_intro(window):
 
 def game_option(window):
     """ function to select difficulty"""
+    # TODO: implement GUI for user to set game options instead of digging through API
+    #       - ball speed
+    #       - difficulty
+    #       - 1 or 2 player game
+    #       - color
+    #       - controls
+    pass
 
 
 def game_end(player, window):
@@ -146,7 +153,7 @@ def game_end(player, window):
         window.game_surf.blit(sub_message, game_over1_rect)
 
         pygame.display.update()
-        clock.tick(60)
+        clock.tick(1)
 
 
 def main(window):

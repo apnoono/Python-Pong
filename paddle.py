@@ -18,7 +18,6 @@ class Paddle(pygame.sprite.Sprite):
     DOWN2 = False
     NEUTRAL2 = True
 
-
     def __init__(self, player: int, window: Window):
         """ constructor to initialize paddle object
         :param player: An integer (1 or 2) denoting human player1 or player2
@@ -29,9 +28,9 @@ class Paddle(pygame.sprite.Sprite):
         self.game_window = window
         self.player = player
         self.image = pygame.Surface([self.PADDLE_WIDTH, self.PADDLE_HEIGHT])
-        self.image.fill(self.game_window.colors[2]) #green
+        self.image.fill(self.game_window.colors[2])  # green
         self.rect = self.image.get_rect()
-        self.speed = 8
+        self.speed = 4
 
         # Set paddle location
 
@@ -43,13 +42,12 @@ class Paddle(pygame.sprite.Sprite):
             self.rect.centerx -= 50
         self.rect.centery = self.game_window.game_surf_rect.centery
 
-
     def move(self):
         """ method defining paddle movement """
         if self.player == 1:
             if (self.UP1 == True) and (self.rect.y > 5):
                 self.rect.y -= self.speed
-            elif (self.DOWN1 == True) and (self.rect.bottom < self.game_window.height -5):
+            elif (self.DOWN1 == True) and (self.rect.bottom < self.game_window.height - 5):
                 self.rect.y += self.speed
             elif (self.NEUTRAL1 == True):
                 pass
@@ -57,7 +55,7 @@ class Paddle(pygame.sprite.Sprite):
         if self.player == 2:
             if (self.UP2 == True) and (self.rect.y > 5):
                 self.rect.y -= self.speed
-            elif (self.DOWN2 == True) and (self.rect.bottom < self.game_window.height -5):
+            elif (self.DOWN2 == True) and (self.rect.bottom < self.game_window.height - 5):
                 self.rect.y += self.speed
             elif (self.NEUTRAL2 == True):
                 pass
